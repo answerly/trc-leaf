@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: mmc-manage
+  leaf:
+    leafs:
+    # 枚举 TOUR-行程 DRIVER-代驾 PAY-支付
+    - code: DRIVER
+      # 仓库name
+      repository: redis_tour
+      # 默认1 订单并发不高 大于1走批量适合并发高的应用
+      batch: 1
+    repositories:
+    # 仓库name 用于leaf.repository
+    - name: redis_tour
+      # 仓库类型 redis local http(http还未实现)
+      type: redis
+      # 每个仓库的配置、如以下是redis配置
+      config:
+        port: 6379
+        password: k2oCFaY0b6JAphmC
+        database: 0
+        host: r-2zec50a033d805b4.redis.rds.aliyuncs.com
+
+
